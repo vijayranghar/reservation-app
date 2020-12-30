@@ -1,0 +1,25 @@
+{
+  "name": "reservation-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayranghar/reservation-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vijayranghar/reservation-app/issues"
+  },
+  "homepage": "https://github.com/vijayranghar/reservation-app#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9"
+  }
+}
