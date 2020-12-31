@@ -1,12 +1,30 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
+
 require("dotenv").config();
 
-const app = express("");
+const postRoute = require("./routes/posts");
 
-mongoose.connect(process.env.DB_CONNECTION, () => {
-  console.log("connected to db");
-});
+const app = express();
+
+app.use(cors());
+
+//parse incoming request.body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use("/post", postRoute);
+
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  { useUnifiedTopology: true, useNewUrlParser: true },
+  () => {
+    console.log("connected to db");
+  }
+);
+
+console.log(mongoose.connection.readyState);
 
 app.get("*", (req, res) => {
   res.send("<h1>hello world</h1>");
